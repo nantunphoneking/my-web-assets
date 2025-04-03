@@ -1,0 +1,580 @@
+/* 基礎樣式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    will-change: transform;
+}
+
+.tab-button, .info-section li, .line-link {
+    will-change: transform, box-shadow;
+    backface-visibility: hidden;
+}
+
+/* 整體頁面樣式 */
+body {
+    font-family: 'Microsoft JhengHei', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+    font-size: 16px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+
+/* Tab 頁籤相關樣式 */
+.tab-container {
+    margin-bottom: 3px;
+    background-color: #ffffff;
+    padding: 8px 6px;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.tab-button {
+    padding: 8px 16px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #495057;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.tab-button:hover {
+    transform: translateY(-3px);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: #007bff;
+}
+
+.tab-button.active {
+    background-color: #2c3e50;
+    color: #ffffff;
+    border-color: #2c3e50;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* 資訊區塊樣式 */
+.info-section {
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    padding: 15px;
+}
+
+.info-section ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.info-section li {
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-section li:hover {
+    transform: translateY(-3px);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: #007bff;
+}
+
+/* LINE 帳號連結樣式 */
+.line-container {
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.line-container h2 {
+    width: 100%;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #333;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.line-link {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding-left: 40px;
+    background-image: url('https://www.mit-machining.com/store_image/nantunphoneking/file/D1738557100011.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 25px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.line-link:hover {
+    transform: translateY(-3px);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: #007bff;
+}
+
+/* 品牌選擇器樣式 */
+.brand-selector-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.brand-selector-label {
+    font-size: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+.brand-selector {
+    margin-bottom: 0;
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.brand-selector:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* 價格表共通樣式 */
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.price-table th {
+    background-color: #2c3e50;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border: none;
+}
+
+.price-table td {
+    padding: 8px 12px;
+    border-top: 1px solid #eee;
+    color: #333;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.price-table td:first-child {
+    text-align: left;
+}
+
+.price-table td:nth-child(2),
+.price-table td:nth-child(3) {
+    font-weight: bold;
+}
+
+.price-table td:nth-child(3) {
+    background-color: #fff9e6;
+    color: #cc0000;
+}
+
+.price-table tr:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease;
+}
+
+/* 表格切換標籤樣式 */
+.table-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.table-tab {
+    padding: 8px 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #495057;
+    transition: all 0.3s ease;
+}
+
+.table-tab:hover {
+    background-color: #e9ecef;
+}
+
+.table-tab.active {
+    background-color: #2c3e50;
+    color: white;
+    border-color: #2c3e50;
+}
+
+.table-content {
+    display: none;
+}
+
+.table-content.active {
+    display: block;
+}
+
+/* 載入和錯誤提示樣式 */
+.loading {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.loading:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.error-message {
+    text-align: center;
+    padding: 20px;
+    color: #dc3545;
+    background-color: #f8d7da;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+/* 圖片輪播樣式 */
+.image-section {
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+.slider-container img {
+    width: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 2;
+    transition: background-color 0.3s;
+}
+
+.slider-button:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.prev-button {
+    left: 2px;
+}
+
+.next-button {
+    right: 2px;
+}
+
+/* 電信業者樣式 */
+.telecom-continer {
+    text-align: center;
+    margin: 8px 0;
+    padding: 8px;
+    background-color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.telecom-continer p {
+    width: 100%;
+    margin: 15px 0 0 0;
+    font-size: 1.1rem;
+    color: #666;
+    text-align: center;
+}
+
+.telecom-link {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding-left: 55px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 40px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.telecom-link:hover {
+    transform: translateY(-3px);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: #007bff;
+}
+
+/* 電信資費表樣式 */
+.telecom-table-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.telecom-table-container .price-table {
+    white-space: nowrap;
+}
+
+.telecom-table-container .price-table td {
+    white-space: nowrap;
+}
+
+.telecom-table-container .price-table td:last-child {
+    text-align: left !important;
+}
+
+.telecom-table-container .price-table td {
+    text-align: center !important;
+}
+
+/* 電信資費表颜色設定 */
+.telecom-table-container .price-table td:nth-child(2) {
+    background-color: #e8f0fe;
+    color: #333;
+    font-weight: bold;
+}
+
+.telecom-table-container .price-table td:nth-child(3) {
+    background-color: #f0f8e8;
+    color: #333;
+    font-weight: bold;
+}
+
+.telecom-table-container .price-table td:nth-child(4) {
+    background-color: #f8f0e8;
+    color: #333;
+    font-weight: bold;
+}
+
+.telecom-table-container .price-table td:nth-child(5) {
+    color: #333;
+    font-weight: bold;
+}
+
+/* 方案類型按鈕樣式 */
+.plan-type-buttons {
+    display: flex;
+    gap: 6px;
+    margin: 8px 0;
+    justify-content: flex-start;
+}
+
+.plan-type-button {
+    padding: 6px 16px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #495057;
+    transition: all 0.3s ease;
+}
+
+.plan-type-button:hover {
+    background-color: #e9ecef;
+}
+
+.plan-type-button.active {
+    background-color: #2c3e50;
+    color: white;
+    border-color: #2c3e50;
+}
+
+.plan-type-container {
+    text-align: left;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    body { font-size: 15px; }
+    .container { padding: 10px 5px; }
+    .info-section {
+        padding: 10px;
+    }
+    .info-section ul { 
+        grid-template-columns: 1fr; 
+        gap: 10px; 
+    }
+    .info-section li { 
+        font-size: 15px; 
+        padding: 10px; 
+    }
+    .line-container {
+        padding: 10px;
+        gap: 8px;
+    }
+    .line-container h2 {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+        padding-left: 5px;
+    }
+    .telecom-continer { padding: 8px; gap: 6px; }
+    .image-section { width: 100%; }
+    .brand-selector-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .brand-selector { width: 100%; }
+}
+
+@media (max-width: 480px) {
+    body { font-size: 14px; }
+    .container { padding: 5px 3px; }
+    .info-section {
+        padding: 8px;
+    }
+    .info-section li { 
+        font-size: 14px; 
+        padding: 8px; 
+    }
+    .line-container { padding: 6px; }
+    .line-link, .telecom-link {
+        min-width: 100%;
+        font-size: 14px;
+        padding: 8px 12px 8px 40px;
+        background-size: 20px;
+        background-position: 8px center;
+    }
+    .telecom-link {
+        padding-left: 45px;
+        background-size: 30px;
+    }
+    .price-table {
+        font-size: 12px;
+    }
+    .price-table th { 
+        font-size: 12px; 
+        padding: 6px; 
+    }
+    .price-table td { 
+        font-size: 12px; 
+        padding: 4px 6px; 
+    }
+    .brand-selector {
+        width: 100%;
+        margin-bottom: 15px;
+        font-size: 14px;
+    }
+    .tab-button, .table-tab {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+    .plan-type-button {
+        font-size: 13px;
+        padding: 4px 12px;
+    }
+}
