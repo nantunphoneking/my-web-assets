@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手機價格表</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Tab 頁籤區塊 -->
+        <div class="tab-container">
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="showTab('price-tab')">價格表</button>
+                <button class="tab-button" onclick="showTab('telecom-tab')">門號優惠折扣</button>
+            </div>
+            <!-- 價格表 頁籤內容 -->
+            <div class="tab-content active" id="price-tab">
+                <!-- 門市資訊區塊 -->
+                <section class="info-section">
+                    <ul>
+                        <li>門市營業時間為 中午12:00~晚上9:00</li>
+                        <li>商品皆為原廠或代理商保固一年。</li>
+                        <li>價格表皆為<span style="color:#ff0000;">現金價</span>。<br />
+                            <span style="color:#6699cc;">刷卡價</span>及<span style="color:#6699cc;">刷卡分期價</span>請詢問門市人員。</li>
+                        <li>請務必先加<span style="color:#ff0000;">LINE@官方帳號</span>詢問貨況。</li>
+                    </ul>
+                </section>
+                <!-- LINE官方帳號連結區塊 -->
+                <div class="line-container">
+                    <h2>LINE@官方帳號</h2>
+                    <a class="line-link" href="https://line.me/R/ti/p/@793sbmgv">東興店</a>
+                    <a class="line-link" href="https://line.me/R/ti/p/@997nubyj">十甲東店</a>
+                    <a class="line-link" href="https://line.me/R/ti/p/@797hvqct">中科店</a>
+                    <a class="line-link" href="https://line.me/R/ti/p/@471ctqkw">興安店</a>
+                </div>
+                <!-- 品牌選擇器區塊 -->
+                <div class="brand-selector-container">
+                    <span class="brand-selector-label">請選擇品牌：</span>
+                    <select class="brand-selector" onchange="filterByBrand(this.value)">
+                        <option value="APPLE">APPLE</option>
+                        <option value="SAMSUNG">SAMSUNG</option>
+                        <option value="OPPO">OPPO</option>
+                        <option value="ASUS">ASUS</option>
+                        <option value="vivo">vivo</option>
+                        <option value="小米">小米</option>
+                        <option value="Google">Google</option>
+                        <option value="SONY">SONY</option>
+                        <option value="realme">realme</option>
+                        <option value="Motorola">Motorola</option>
+                        <option value="HTC">HTC</option>
+                        <option value="Nokia">Nokia</option>
+                        <option value="G-PLUS">G-PLUS</option>
+                        <option value="福利品">福利品</option>
+                    </select>
+                </div>
+                <!-- 手機價格表容器 (動態生成) -->
+                <div id="google-sheets-container">
+                    <!-- 表格內容將在此動態生成 -->
+                </div>
+            </div>
+            <!-- 門號優惠折扣 頁籤內容 -->
+            <div class="tab-content" id="telecom-tab">
+                <!-- 優惠圖片輪播區塊 -->
+                <section class="image-section">
+                    <div class="slider-container">
+                        <img alt="中區599" src="https://www.mit-machining.com/store_image/nantunphoneking/file/D173962122252.jpg" />
+                        <img alt="攜碼688" src="https://www.mit-machining.com/store_image/nantunphoneking/file/D174348892336.jpg" />
+                        <img alt="攜碼999" src="https://www.mit-machining.com/store_image/nantunphoneking/file/D174348893961.jpg" />
+                        <img alt="攜碼1399" src="https://www.mit-machining.com/store_image/nantunphoneking/file/D174348895603.jpg" />
+                    </div>
+                    <button class="slider-button prev-button" onclick="slideImages(-1)">❮</button>
+                    <button class="slider-button next-button" onclick="slideImages(1)">❯</button>
+                </section>
+                <!-- 電信業者選擇區塊 -->
+                <div class="telecom-continer">
+                    <p>點擊電信業者查看更多方案</p>
+                    <a class="telecom-link" data-carrier="cht" href="javascript:void(0);" onclick="showPlanButtons('cht')" style="background-image: url('https://www.mit-machining.com/store_image/nantunphoneking/file/D1688531373473.jpg');">中華電信</a>
+                    <a class="telecom-link" data-carrier="twm" href="javascript:void(0);" onclick="showPlanButtons('twm')" style="background-image: url('https://www.mit-machining.com/store_image/nantunphoneking/file/D1688531373485.jpg');">台灣大哥大</a>
+                    <a class="telecom-link" data-carrier="fet" href="javascript:void(0);" onclick="showPlanButtons('fet')" style="background-image: url('https://www.mit-machining.com/store_image/nantunphoneking/file/D1688531373484.jpg');">遠傳電信</a>
+                </div>
+                <!-- 方案類型選擇區塊 (4G/5G) -->
+                <div class="plan-type-container">
+                    <div class="plan-type-buttons" style="display: none;">
+                        <button class="plan-type-button active" onclick="switchPlanType('4G')">4G方案</button>
+                        <button class="plan-type-button" onclick="switchPlanType('5G')">5G方案</button>
+                    </div>
+                    <div id="current-carrier-display">&nbsp;</div>
+                </div>
+                <!-- 電信資費表容器 (動態生成) -->
+                <div class="telecom-table-container" id="telecom-sheets-container">
+                    <!-- 電信資費表將在此動態生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
